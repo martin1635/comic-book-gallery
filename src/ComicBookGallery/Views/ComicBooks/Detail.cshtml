@@ -30,17 +30,24 @@
         <h2>Issue #@issueNumber</h2>
         <h5>Description:</h5>
         <p>@Html.Raw(description)</p>
-        <h5>Artists</h5>
-        <div>
 
-            @for(int i = 0; i < artists.Length; i++)
-            {
+        @if (artists.Length != 0)
+        {
+            <h5>Artists</h5>
+            <div>
                 <ul>
-                    <li>@artists[i]</li>
+                    @foreach (var artist in artists)
+                    {
+                        <li>@artist</li>
+                    }
                 </ul>
-            }
+            </div>
+        }
+        else
+        {
+            <p>No results found for artists</p>
+        }
 
-        </div>
     </div>
 </body>
 </html>
