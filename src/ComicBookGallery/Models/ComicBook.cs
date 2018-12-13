@@ -16,5 +16,22 @@ namespace ComicBookGallery.Models
         public Artist[] Artists { get; set; }
         public bool Favourite { get; set; }
 
+        public string DisplayText
+        {
+            get
+            {
+                return this.SeriesTitle + " #" + this.IssueNumber;
+            }
+        }
+
+        public string CoverImageFileName
+        {
+            get
+            {
+                return SeriesTitle.Replace(" ", "-").ToLower() + "-"
+                    + this.IssueNumber + ".jpg";
+            }
+        }
+
     }
 }
